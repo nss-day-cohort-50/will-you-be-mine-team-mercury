@@ -8,11 +8,11 @@ export const GovernorsSelection = () =>{
     const governorsHTML = governors.map((gov) =>{
         if (gov.isActive){
             return `
-                <option id="governors--${gov.id}" value="love">${gov.name}</option>
+                <option name="governors"  value="governors--${gov.id}">${gov.name}</option>
             `
         }else{
             return `
-                <option disabled>${gov.name}</option>
+                <option name="governors" disabled>${gov.name}</option>
             `
         }
     })
@@ -24,9 +24,10 @@ export const GovernorsSelection = () =>{
 document.addEventListener(
     "change",
     (event) =>{
-        if (event.target.id.startsWith("governors")){
-            const [,eventId] = event.target.id.split("--")
+        if (event.target.value.startsWith("governors")){
+            const [,eventId] = event.target.value.split("--")
             findgovernor(parseInt(eventId))
         }
+        
     }
 )

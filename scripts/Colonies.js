@@ -1,9 +1,9 @@
 import { getGovernors, getColonies} from "./database.js"
 
-const governor = ""
+let governor = ""
 export const findgovernor = (id) =>{
     const governors = getGovernors();
-    const foundGovernor = governor.find((gov) =>  gov.id === id)
+    const foundGovernor = governors.find((gov) =>  gov.id === id)
     governor = foundGovernor
 }
  const findColony = (governor) =>{
