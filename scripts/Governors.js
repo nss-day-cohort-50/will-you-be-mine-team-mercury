@@ -1,5 +1,5 @@
 import { getGovernors } from "./database.js";
-
+import { findgovernor } from "./Colonies.js";
 
 export const GovernorsSelection = () =>{
     const governors = getGovernors();
@@ -8,7 +8,7 @@ export const GovernorsSelection = () =>{
     const governorsHTML = governors.map((gov) =>{
         if (gov.isActive){
             return `
-                <option>${gov.name}</option>
+                <option id="governors--${gov.id}" value="love">${gov.name}</option>
             `
         }else{
             return `
@@ -20,3 +20,13 @@ export const GovernorsSelection = () =>{
     htmlString += `</select>`
     return htmlString
 }
+
+document.addEventListener(
+    "change",
+    (event) =>{
+        if (event.target.id.startsWith("governors")){
+            const [,eventId] = event.target.id.split("--")
+            findgovernor(parseInt(eventId))
+        }
+    }
+)
