@@ -1,5 +1,8 @@
 import { getMiningFacilities } from "./database.js";
-
+let isGovernorSelected = false 
+export const isGovernorClicked = (boolean) => {
+    isGovernorSelected = boolean
+}
 
 export const facilityList = () => {
 
@@ -7,9 +10,16 @@ export const facilityList = () => {
     const miningFacility = getMiningFacilities()
 
     const miningFacilityHTML = miningFacility.map((facility) => {
-        return `<article>
-                    <button>${facility.name}</button>
-                </article>`
+        if (facility.isActive && isGovernorSelected) {
+            return `<article>
+            <button type="button" value=${facility.name}>${facility.name}</button>
+        </article>`
+        } else  {
+            return `<article>
+            <button type="button" value=${facility.name} disabled>${facility.name}</button>
+        </article>`
+        }
+
     })
     htmlString += miningFacilityHTML.join("")
 
