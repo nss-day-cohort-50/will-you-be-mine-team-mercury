@@ -1,4 +1,5 @@
 import { GovernorsSelection } from "./Governors.js"
+import { facilityList } from "./Facilities.js"
 
 export const beMineHTML = () => {
     return `
@@ -6,7 +7,9 @@ export const beMineHTML = () => {
 
         <article id="facilities">
         <h2>Active Mining Facilities</h2>
-            <section></section>
+            <section>
+            ${facilityList()}
+            </section>
 
         </article>
 
