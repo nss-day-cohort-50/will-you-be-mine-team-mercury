@@ -1,3 +1,4 @@
+import { GovernorsSelection } from "./Governors.js"
 
 export const beMineHTML = () => {
     return `
@@ -16,7 +17,7 @@ export const beMineHTML = () => {
         </article>
 
         <article>
-            <section>Governors drop-down</section>
+            <section>${GovernorsSelection()}</section>
             <section>Available minerals</section>
         </article>
     `
