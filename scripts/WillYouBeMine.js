@@ -1,3 +1,4 @@
+import { displaySelectedGovernor, displayColonyAvailableResources } from "./Colonies.js"
 import { GovernorsSelection } from "./Governors.js"
 
 export const beMineHTML = () => {
@@ -18,7 +19,10 @@ export const beMineHTML = () => {
 
         <article>
             <section>${GovernorsSelection()}</section>
-            <section>Available minerals</section>
+            <section>
+            ${displaySelectedGovernor()}
+            ${displayColonyAvailableResources()}
+            </section>
         </article>
     `
 }
