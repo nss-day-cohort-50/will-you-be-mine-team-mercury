@@ -27,6 +27,7 @@ document.addEventListener(
         if (event.target.value.startsWith("governors")){
             const [,eventId] = event.target.value.split("--")
             findgovernor(parseInt(eventId))
+            document.dispatchEvent(new CustomEvent("stateChanged"))
         }
         
     }

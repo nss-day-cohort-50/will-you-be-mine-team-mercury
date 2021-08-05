@@ -11,7 +11,10 @@ export const findgovernor = (id) =>{
     const foundColony = colonies.find((colony) => colony.id === governor.colonyId)
     return foundColony
 }
-export const getColonyAvailableResources = () =>{
+export const displaySelectedGovernor = () =>{
+    return (governor.name === undefined ?  "" : `<h2>${governor.name}</h2>`)
+}
+export const displayColonyAvailableResources = () =>{
     const colony = findColony(governor)
     if (colony === undefined){
         return "<h2>Colonies</h2>"
