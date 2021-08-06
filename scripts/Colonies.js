@@ -1,6 +1,5 @@
 import { colonyMinerals } from "./ColonyMinerals.js";
 import { getGovernors, getColonies, getChosenMinerals} from "./database.js"
-import { AvailableResources } from "./ResourcesAvailable.js";
 
 
  const findGovernor = (id) =>{

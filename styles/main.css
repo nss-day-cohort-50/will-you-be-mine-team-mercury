@@ -24,10 +24,10 @@ body {
     align-content: space-around;
 }
 
-#minerals {
-
-}
-
 .hidden {
     display: none;
+}
+
+#governorsAndColonies {
+    display: flex;
 }

@@ -6,3 +6,21 @@ h1 {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
 }
+
+#governorSelector {
+    flex: auto;
+    font-family: 'Inconsolata', monospace;
+}
+
+.governorOption {
+    background-color: white;
+    font-family: 'Inconsolata', monospace;
+}
+
+#selectedGovernor {
+    flex: auto;
+}
+
+#availableResources{
+    flex: auto;
+}

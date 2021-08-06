@@ -21,10 +21,15 @@ export const beMineHTML = () => {
             <button>Purchase all minerals</button>
         </article>
 
-        <article>
-            <section>${GovernorsSelection()}</section>
+        <article id="governorsAndColonies">
             <section>
+            <p>Choose your governor</p>
+            </section>
+            <section class="governorSelector">${GovernorsSelection()}</section>
+            <section id="selectedGovernor">
             ${displaySelectedGovernor()}
+            </section>
+            <section id="availableResources">
             ${displayColonyAvailableResources()}
             </section>
         </article>

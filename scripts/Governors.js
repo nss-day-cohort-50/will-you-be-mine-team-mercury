@@ -4,17 +4,16 @@ import { getGovernors, setChosenGovernorId } from "./database.js";
 
 export const GovernorsSelection = () =>{
     const governors = getGovernors();
-    let htmlString = `<label for="governors">Governors</label>
-                        <select name="governors">
-                        <option value="" selected disabled hidden>Choose here</option>`;
+    let htmlString = `  <select id="governorSelector" name="governors">
+                        <option class="governorOption" value="" selected disabled hidden>Choose here</option>`;
     const governorsHTML = governors.map((gov) =>{
         if (gov.isActive){
             return `
-                <option name="governors"  value="governors--${gov.id}">${gov.name}</option>
+                <option class="governorOption" name="governors"  value="governors--${gov.id}">${gov.name}</option>
             `
         }else{
             return `
-                <option name="governors" disabled>${gov.name}</option>
+                <option class="governorOption" name="governors" disabled>${gov.name}</option>
             `
         }
     })
