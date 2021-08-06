@@ -1,41 +1,55 @@
 import {getFacilitiesMinerals, getMiningFacilities, getMinerals} from "./database.js"
-import { setSelectedFacility } from "./database.js"
+import { setJupitersArmId, setJupitersArmMineralId, setHermesArmpitId, setHermesArmpitMineralId, setHermesPalaceMineralId, setHermesPalaceId, setLilTayTaysId, setLilTayTaysMineralId } from "./database.js"
 
 document.addEventListener(
     "change",
     (event) => {
-        if (event.target.name === "jupitersArmmineral") {
-            setSelectedFacility(parseInt(event.target.value))
+        if (event.target.name === "jupitersArmMineral") {
+            setJupitersArmId(parseInt(event.target.value))
+                if (event.target.id.startsWith("facility")) {
+                    const [,targetId] = event.target.id.split("--")
+                    setJupitersArmMineralId(parseInt(targetId))
+                }
+        }
+    }
+)
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "lilTayTaysMineral") {
+            setLilTayTaysId(parseInt(event.target.value))
+                if (event.target.id.startsWith("facility")) {
+                    const [,targetId] = event.target.id.split("--")
+                    setLilTayTaysMineralId(parseInt(targetId))
+                }
+        }
+    }
+)
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "hermesPalaceMineral") {
+            setHermesPalaceId(parseInt(event.target.value))
+                if (event.target.id.startsWith("facility")) {
+                    const [,targetId] = event.target.id.split("--")
+                    setHermesPalaceMineralId(parseInt(targetId))
+                }
+        }
+    }
+)
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "jupitersArmMineral") {
+            setJupitersArmId(parseInt(event.target.value))
+                if (event.target.id.startsWith("facility")) {
+                    const [,targetId] = event.target.id.split("--")
+                    setJupitersArmMineralId(parseInt(targetId))
+                }
         }
     }
 )
 
-document.addEventListener(
-    "change",
-    (event) => {
-        if (event.target.name === "hermesArmPitmineral") {
-            setSelectedFacility(parseInt(event.target.value))
-        }
-    }
-)
-
-document.addEventListener(
-    "change",
-    (event) => {
-        if (event.target.name === "hermesPalacemineral") {
-            setSelectedFacility(parseInt(event.target.value))
-        }
-    }
-)
-
-document.addEventListener(
-    "change",
-    (event) => {
-        if (event.target.name === "lilTayTaysmineral") {
-            setSelectedFacility(parseInt(event.target.value))
-        }
-    }
-)
 
 
 const minerals = getMinerals();
@@ -47,7 +61,7 @@ export const jupitersArmMinerals = () =>{
     for (const mineral of minerals){
         for (const facilityMineral of facilityMinerals){
             if (facilityMineral.mineralId === mineral.id){
-                htmlString += `<li><input type="radio" name="jupitersArmmineral" value="${mineral.id}">Mineral : ${mineral.name} || Available Supply: ${facilityMineral.quantityAvailable}`
+                htmlString += `<li><input id="facility--${mineral.miningFacilityId}" type="radio" name="jupitersArmmineral" value="${mineral.id}">Mineral : ${mineral.name} || Available Supply: ${facilityMineral.quantityAvailable}`
             }
         }
     }
