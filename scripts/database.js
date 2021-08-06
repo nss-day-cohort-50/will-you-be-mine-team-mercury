@@ -133,6 +133,7 @@ export const getGovernors = () => { return database.governors.map(governor => ({
 export const getMinerals = () => { return database.minerals.map(mineral => ({...mineral}))}
 export const getMiningFacilities = () => { return database.miningFacilities.map(miningFacility => ({...miningFacility}))}
 export const getChosenMinerals = () =>{return database.chosenMinerals}
+export const getResources = () => {return database.resources.map(resource => ({...resource}))}
 
 
 export const setChosenGovernorId = (id)=>{database.chosenMinerals.governorId = id}
