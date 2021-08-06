@@ -1,3 +1,4 @@
+import { colonyMinerals } from "./ColonyMinerals.js";
 import { getGovernors, getColonies, getChosenMinerals} from "./database.js"
 import { AvailableResources } from "./ResourcesAvailable.js";
 
@@ -25,13 +26,12 @@ export const displaySelectedGovernor = () =>{
 export const displayColonyAvailableResources = () =>{
     const governor = findGovernor(getChosenMinerals().governorId)
     const colony = findColony(governor)
-    const resources = AvailableResources()
     if (colony === undefined){
         return "<h2>Colonies</h2>"
     }else{
         return `
             <h2>${colony.name}</h2>
-            ${resources}
+            ${colonyMinerals(colony.name)}
         `
     }
 }
