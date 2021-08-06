@@ -18,10 +18,10 @@ body {
     flex-direction: column;
 }
 
-#facilitityList {
+#facilityList {
     display: flex;
     flex-direction: row;
-
+    align-content: space-around;
 }
 
 #minerals {

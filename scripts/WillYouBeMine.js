@@ -5,7 +5,7 @@ import { facilityList } from "./Facilities.js"
 
 export const beMineHTML = () => {
     return `
-        <h1>Will you be Mine</h1>
+        <h1>B MINE Marketplace</h1>
 
         <article id="facilities">
         <h2>Active Mining Facilities</h2>
