@@ -5,10 +5,10 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "jupitersArmMineral") {
-            setJupitersArmId(parseInt(event.target.value))
                 if (event.target.id.startsWith("facility")) {
                     const [,targetId] = event.target.id.split("--")
-                    setJupitersArmMineralId(parseInt(targetId))
+                    setJupitersArmMineralId(parseInt(event.target.value))
+                    setJupitersArmId(parseInt(targetId))
                 }
         }
     }
@@ -17,10 +17,10 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "lilTayTaysMineral") {
-            setLilTayTaysId(parseInt(event.target.value))
-                if (event.target.id.startsWith("facility")) {
-                    const [,targetId] = event.target.id.split("--")
-                    setLilTayTaysMineralId(parseInt(targetId))
+            if (event.target.id.startsWith("facility")) {
+                const [,targetId] = event.target.id.split("--")
+                setLilTayTaysMineralId(parseInt(event.target.value))
+                setLilTayTaysId(parseInt(targetId))
                 }
         }
     }
@@ -29,23 +29,23 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "hermesPalaceMineral") {
-            setHermesPalaceId(parseInt(event.target.value))
-                if (event.target.id.startsWith("facility")) {
-                    const [,targetId] = event.target.id.split("--")
-                    setHermesPalaceMineralId(parseInt(targetId))
-                }
+            if (event.target.id.startsWith("facility")) {
+                const [,targetId] = event.target.id.split("--")
+                setHermesPalaceMineralId(parseInt(event.target.value))
+                setHermesPalaceId(parseInt(targetId))
+            }
         }
     }
 )
 document.addEventListener(
     "change",
     (event) => {
-        if (event.target.name === "jupitersArmMineral") {
-            setJupitersArmId(parseInt(event.target.value))
-                if (event.target.id.startsWith("facility")) {
-                    const [,targetId] = event.target.id.split("--")
-                    setJupitersArmMineralId(parseInt(targetId))
-                }
+        if (event.target.name === "hermesArmpitMineral") {
+            if (event.target.id.startsWith("facility")) {
+                const [,targetId] = event.target.id.split("--")
+                setHermesArmpitMineralId(parseInt(event.target.value))
+                setHermesArmpitId(parseInt(targetId))
+            }
         }
     }
 )
@@ -61,7 +61,7 @@ export const jupitersArmMinerals = () =>{
     for (const mineral of minerals){
         for (const facilityMineral of facilityMinerals){
             if (facilityMineral.mineralId === mineral.id){
-                htmlString += `<li><input id="facility--${mineral.miningFacilityId}" type="radio" name="jupitersArmMineral" value="${mineral.id}">Mineral : ${mineral.name} || Available Supply: ${facilityMineral.quantityAvailable}`
+                htmlString += `<li><input id="facility--${facilityMineral.miningFacilityId}" type="radio" name="jupitersArmMineral" value="${mineral.id}">Mineral : ${mineral.name} || Available Supply: ${facilityMineral.quantityAvailable}`
             }
         }
     }
@@ -76,7 +76,7 @@ export const hermesArmpitMinerals = () =>{
     for (const mineral of minerals){
         for (const facilityMineral of facilityMinerals){
             if (facilityMineral.mineralId === mineral.id){
-                htmlString += `<li><input type="radio" name="hermesArmPitMineral" value="${mineral.id}"/>Mineral : ${mineral.name} || Available Supply: ${facilityMineral.quantityAvailable}`
+                htmlString += `<li><input id="facility--${facilityMineral.miningFacilityId}" type="radio" name="hermesArmPitMineral" value="${mineral.id}"/>Mineral : ${mineral.name} || Available Supply: ${facilityMineral.quantityAvailable}`
             }
         }
     }
@@ -91,7 +91,7 @@ export const hermesPalaceMinerals = () =>{
     for (const mineral of minerals){
         for (const facilityMineral of facilityMinerals){
             if (facilityMineral.mineralId === mineral.id){
-                htmlString += `<li><input type="radio" name="hermesPalaceMineral" value="${mineral.id}"/>Mineral : ${mineral.name} || Available Supply: ${facilityMineral.quantityAvailable}`
+                htmlString += `<li><input id="facility--${facilityMineral.miningFacilityId}" type="radio" name="hermesPalaceMineral" value="${mineral.id}"/>Mineral : ${mineral.name} || Available Supply: ${facilityMineral.quantityAvailable}`
             }
         }
     }
@@ -106,7 +106,7 @@ export const lilTayTaysMinerals = () =>{
     for (const mineral of minerals){
         for (const facilityMineral of facilityMinerals){
             if (facilityMineral.mineralId === mineral.id){
-                htmlString += `<li><input type="radio" name="lilTayTaysMineral" value="${mineral.id}"/>Mineral : ${mineral.name} || Available Supply: ${facilityMineral.quantityAvailable}`
+                htmlString += `<li><input id="facility--${facilityMineral.miningFacilityId}" type="radio" name="lilTayTaysMineral" value="${mineral.id}"/>Mineral : ${mineral.name} || Available Supply: ${facilityMineral.quantityAvailable}`
             }
         }
     }
