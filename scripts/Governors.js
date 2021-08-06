@@ -1,6 +1,6 @@
-import { getGovernors } from "./database.js";
-import { findgovernor } from "./Colonies.js";
-import { isGovernorClicked } from "./Facilities.js";
+import { getGovernors, setChosenGovernorId } from "./database.js";
+
+
 
 export const GovernorsSelection = () =>{
     const governors = getGovernors();
@@ -27,8 +27,9 @@ document.addEventListener(
     (event) =>{
         if (event.target.value.startsWith("governors")){
             const [,eventId] = event.target.value.split("--")
-            findgovernor(parseInt(eventId))
-            isGovernorClicked(true)
+            
+            
+            setChosenGovernorId(parseInt(eventId))
             document.dispatchEvent(new CustomEvent("stateChanged"))
         }
         
