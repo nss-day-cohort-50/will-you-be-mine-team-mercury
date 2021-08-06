@@ -31,10 +31,10 @@ body {
     border: aquamarine 1px solid;
 }
 
-#minerals {
-
-}
-
 .hidden {
     display: none;
+}
+
+#governors-and-colonies {
+    display: flex;
 }
