@@ -1,20 +1,28 @@
-import { getGovernors, getColonies} from "./database.js"
+import { getGovernors, getColonies, getChosenMinerals} from "./database.js"
 
-let governor = ""
-export const findgovernor = (id) =>{
+
+ const findgovernor = (id) =>{
     const governors = getGovernors();
+    
     const foundGovernor = governors.find((gov) =>  gov.id === id)
-    governor = foundGovernor
+    return foundGovernor
 }
- const findColony = (governor) =>{
+
+ const findColony = () =>{
+    const governor = findgovernor(getChosenMinerals().governorId)
     const colonies = getColonies();
-    const foundColony = colonies.find((colony) => colony.id === governor.colonyId)
-    return foundColony
+    if (governor !== undefined){
+        const foundColony = colonies.find((colony) => colony.id === governor.colonyId)
+        return foundColony
+
+    }
 }
 export const displaySelectedGovernor = () =>{
-    return (governor.name === undefined ?  "" : `<h2>${governor.name}</h2>`)
+    const governor = findgovernor(getChosenMinerals().governorId)
+    return (governor === undefined ?  "" : `<h2>${governor.name}</h2>`)
 }
 export const displayColonyAvailableResources = () =>{
+    const governor = findgovernor(getChosenMinerals().governorId)
     const colony = findColony(governor)
     if (colony === undefined){
         return "<h2>Colonies</h2>"

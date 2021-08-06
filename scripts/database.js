@@ -120,8 +120,11 @@ export const getColonies = () => { return database.colonies.map(colony => ({...c
 export const getGovernors = () => { return database.governors.map(governor => ({...governor}))}
 export const getMinerals = () => { return database.minerals.map(mineral => ({...mineral}))}
 export const getMiningFacilities = () => { return database.miningFacilities.map(miningFacility => ({...miningFacility}))}
+export const getChosenMinerals = () =>{return database.chosenMinerals}
 // export const getOrders = () => { return database.orders.map(order => ({...order}))}
 // export const getOrderBuilder = () => { return database.orderBuilder}
-
+export const setChosenGovernorId = (id)=>{database.chosenMinerals.governorId = id}
+export const setSelectedFacility = (id)=>{database.chosenMinerals.facilityId = id}
+export const setChosenMaterials = (object) =>{database.chosenMinerals.selectedMinerals += object}
 //commented out last 2 getter functions, we need to re-write them to reflect accurate naming
 // Also need to add getter function for mineralsAvailableByFacilities

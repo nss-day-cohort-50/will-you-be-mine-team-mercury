@@ -1,22 +1,18 @@
-import { getMiningFacilities } from "./database.js";
-let isGovernorSelected = false 
-export const isGovernorClicked = (boolean) => {
-    isGovernorSelected = boolean
-}
+import { getChosenMinerals, getMiningFacilities } from "./database.js";
 
 export const facilityList = () => {
 
     let htmlString = ""
     const miningFacility = getMiningFacilities()
-
+    const governor = getChosenMinerals().governorId
     const miningFacilityHTML = miningFacility.map((facility) => {
-        if (facility.isActive && isGovernorSelected) {
+        if (facility.isActive && governor !== undefined) {
             return `<article>
-            <button type="button" value=${facility.name}>${facility.name}</button>
+            <button type="button" value=${facility.id}>${facility.name}</button>
         </article>`
         } else  {
             return `<article>
-            <button type="button" value=${facility.name} disabled>${facility.name}</button>
+            <button type="button" value=${facility.id} disabled>${facility.name}</button>
         </article>`
         }
 
