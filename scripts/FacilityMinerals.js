@@ -1,4 +1,5 @@
 import {getFacilitiesMinerals, getMiningFacilities, getMinerals} from "./database.js"
+import { setSelectedFacility } from "./database.js"
 
 document.addEventListener(
     "change",
