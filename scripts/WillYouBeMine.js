@@ -8,9 +8,9 @@ export const beMineHTML = () => {
         <h1>Will you be Mine</h1>
 
         <article id="facilities">
-        <h2>Active Mining Facilities</h2>
+            <h2>Active Mining Facilities</h2>
             <section id="facilityList">
-            ${facilityList()}
+                ${facilityList()}
             </section>
 
         </article>

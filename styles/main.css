@@ -16,12 +16,18 @@ body {
     display: flex;
     align-content: space-between;
     flex-direction: column;
+    height: 50vh;
 }
 
-#facilitityList {
+#facilityList {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    
 
+}
+#facilityList article{
+    border: aquamarine 1px solid;
 }
 
 #minerals {
