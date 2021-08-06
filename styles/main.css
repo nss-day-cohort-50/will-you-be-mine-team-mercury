@@ -1,6 +1,32 @@
+@import "details.css";
+@import url("@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap')");
+
 .isActive {
     background-color: aqua;
 }
 .isNotActive {
     background-color: red;
+}
+
+body {
+    font-family: 'Inconsolata', monospace;
+}
+
+#facilities {
+    display: flex;
+    align-content: space-between;
+    flex-direction: column;
+}
+
+.facilitityList {
+    display: flex;
+
+}
+
+#minerals {
+
+}
+
+.hidden {
+    display: none;
 }
