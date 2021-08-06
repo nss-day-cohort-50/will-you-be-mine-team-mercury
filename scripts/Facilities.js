@@ -23,7 +23,7 @@ export const facilityList = () => {
                     break;
                 }
                 return `<article>
-                <button type="button" value=${facility.id}>${facility.name}</button>
+                <button type="button" id="facilityButton"value=${facility.id}>${facility.name}</button>
                 ${facilityMinerals}
             </article>`
 
@@ -39,22 +39,43 @@ export const facilityList = () => {
     return htmlString
 }
 
-// miningFacilities : [
-//     {
-//         id: 1,
-//         name: "Jupiter's Arm",
-//         isActive: true
-//     }, {
-//         id: 2,
-//         name: "Hermes' Armpit",
-//         isActive: true
-//     }, {
-//         id: 3,
-//         name: "Hermes' Palace",
-//         isActive: true
-//     }, {
-//         id: 4,
-//         name: "Lil' Tay-Tay's",
-//         isActive: true
-//     }
-// ],
+document.addEventListener("click",
+    (event) =>{
+        if (event.target.id === "facilityButton"){
+            hideFacility(parseInt(event.target.value))
+        }
+})
+
+const hideFacility = (id)=>{
+    const facilityOne = document.getElementById("facility1")
+    const facilityTwo = document.getElementById("facility2")
+    const facilityThree = document.getElementById("facility3")
+    const facilityFour = document.getElementById("facility4")
+    switch (id){
+        case 1:
+            facilityOne.classList.remove("hidden")
+            facilityTwo.classList.add("hidden")
+            facilityThree.classList.add("hidden")
+            facilityFour.classList.add("hidden")
+            break;
+        case 2:
+            facilityOne.classList.add("hidden")
+            facilityTwo.classList.remove("hidden")
+            facilityThree.classList.add("hidden")
+            facilityFour.classList.add("hidden")
+            break;
+        case 3:
+            facilityOne.classList.add("hidden")
+            facilityTwo.classList.add("hidden")
+            facilityThree.classList.remove("hidden")
+            facilityFour.classList.add("hidden")            
+            break;
+        case 4:
+            facilityOne.classList.add("hidden")
+            facilityTwo.classList.add("hidden")
+            facilityThree.classList.add("hidden")
+            facilityFour.classList.remove("hidden")
+            break;
+    }
+    
+}

@@ -22,13 +22,10 @@ body {
 #facilityList {
     display: flex;
     flex-direction: row;
-<<<<<<< HEAD
     justify-content: space-between;
     
 
-=======
     align-content: space-around;
->>>>>>> main
 }
 #facilityList article{
     border: aquamarine 1px solid;
