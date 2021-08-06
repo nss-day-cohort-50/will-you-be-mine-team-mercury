@@ -18,8 +18,9 @@ body {
     flex-direction: column;
 }
 
-.facilitityList {
+#facilitityList {
     display: flex;
+    flex-direction: row;
 
 }
 

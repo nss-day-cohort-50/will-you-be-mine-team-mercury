@@ -9,7 +9,7 @@ export const beMineHTML = () => {
 
         <article id="facilities">
         <h2>Active Mining Facilities</h2>
-            <section class="facilityList">
+            <section id="facilityList">
             ${facilityList()}
             </section>
 
