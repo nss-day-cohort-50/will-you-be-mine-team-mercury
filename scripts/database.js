@@ -142,3 +142,14 @@ export const setChosenGovernorId = (id)=>{database.chosenMinerals.governorId = i
 export const setSelectedFacility = (id)=>{database.chosenMinerals.facilityId = id}
 export const setChosenMaterials = (object) =>{database.chosenMinerals.selectedMinerals += object}
 // Also need to add getter function for mineralsAvailableByFacilities
+
+export const setJupitersArmId = (id) =>{database.chosenMinerals.jupitersArmId = id}
+export const setHermesArmpitId = (id) =>{database.chosenMinerals.hermesArmpitId = id}
+export const setHermesPalaceId = (id) =>{database.chosenMinerals.hermesPalaceId = id}
+export const setLilTayTaysId = (id) =>{database.chosenMinerals.lilTayTaysId = id}
+
+export const setJupitersArmMineralId = (id) =>{database.chosenMinerals.jupitersArmMineralId = id}
+export const setHermesArmpitMineralId = (id) =>{database.chosenMinerals.hermesArmpitMineralId = id}
+export const setHermesPalaceMineralId = (id) =>{database.chosenMinerals.hermesPalaceMineralId = id}
+export const setLilTayTaysMineralId = (id) =>{database.chosenMinerals.lilTayTaysMineralId = id}
+//
