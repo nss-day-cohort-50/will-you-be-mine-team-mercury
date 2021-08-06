@@ -26,10 +26,11 @@ export const displayColonyAvailableResources = () =>{
     const governor = findGovernor(getChosenMinerals().governorId)
     const colony = findColony(governor)
     if (colony === undefined){
-        return "<h2>Colonies</h2>"
+        return `<h2 class="colony__title">Colony</h2>`
     }else{
         return `
-            <h2>${colony.name}</h2>
+            <h2 class="colony__title">${colony.name} Colony</h2>
+            <p>(governor: ${governor.name})</p>
             ${colonyMinerals(colony.name)}
         `
     }
