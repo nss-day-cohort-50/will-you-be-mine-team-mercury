@@ -3,7 +3,7 @@ import {getFacilitiesMinerals, getMiningFacilities, getMinerals} from "./databas
 
 const minerals = getMinerals();
 export const jupitersArmMinerals = () =>{
-    let htmlString = `<ul class="">`
+    let htmlString = `<ul class="" id="facility1>`
     const allfacilityMinerals = getFacilitiesMinerals()
     const facility = getMiningFacilities().find((facility) => facility.name === "Jupiter's Arm")
     const facilityMinerals = allfacilityMinerals.filter((mineral) =>{return mineral.miningFacilityId === facility.id })
@@ -18,7 +18,7 @@ export const jupitersArmMinerals = () =>{
     return htmlString
 }
 export const hermesArmpitMinerals = () =>{
-    let htmlString = `<ul class="">`
+    let htmlString = `<ul class="" id="facility2>`
     const allfacilityMinerals = getFacilitiesMinerals()
     const facility = getMiningFacilities().find((facility) => facility.name === "Hermes' Armpit")
     const facilityMinerals = allfacilityMinerals.filter((mineral) =>{return mineral.miningFacilityId === facility.id })
@@ -33,7 +33,7 @@ export const hermesArmpitMinerals = () =>{
     return htmlString
 }
 export const hermesPalaceMinerals = () =>{
-    let htmlString = `<ul class="">`
+    let htmlString = `<ul class=""id="facility3>`
     const allfacilityMinerals = getFacilitiesMinerals()
     const facility = getMiningFacilities().find((facility) => facility.name === "Hermes' Palace")
     const facilityMinerals = allfacilityMinerals.filter((mineral) =>{return mineral.miningFacilityId === facility.id })
@@ -48,7 +48,7 @@ export const hermesPalaceMinerals = () =>{
     return htmlString
 }
 export const lilTayTaysMinerals = () =>{
-    let htmlString = `<ul class="">`
+    let htmlString = `<ul class=""id="facility4>`
     const allfacilityMinerals = getFacilitiesMinerals()
     const facility = getMiningFacilities().find((facility) => facility.name === "Lil' Tay-Tay's")
     const facilityMinerals = allfacilityMinerals.filter((mineral) =>{return mineral.miningFacilityId === facility.id })
