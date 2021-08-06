@@ -1,8 +1,42 @@
-h2 {
+.facility__title {
     text-align: center;
 }
 
+.mineral__title {
+    text-align: center;
+}
+
+.colony__title {
+    text-align: left;
+    margin: 0;
+    padding-top: 0.7rem;
+}
 h1 {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
+}
+
+.governor-selector {
+    flex: 0 1 auto;
+    font-family: 'Inconsolata', monospace;
+    padding: 1rem;
+}
+
+#selected-governor {
+    flex: auto;
+    padding: 1rem;
+}
+
+#available-resources{
+    flex: auto;
+    padding-left: 3rem;
+}
+
+#available-resources ul{
+    list-style-position: outside;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
 }

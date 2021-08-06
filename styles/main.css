@@ -31,7 +31,10 @@ body {
     border: aquamarine 1px solid;
 }
 
-
 .hidden {
     display: none;
+}
+
+#governors-and-colonies {
+    display: flex;
 }
