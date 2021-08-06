@@ -9,7 +9,7 @@ export const beMineHTML = () => {
 
         <article id="facilities">
         <h2>Active Mining Facilities</h2>
-            <section class="facility_list">
+            <section class="facilityList">
             ${facilityList()}
             </section>
 
@@ -18,7 +18,7 @@ export const beMineHTML = () => {
         <article id="minerals">Chosen minerals and purchase button go in here
             <h2>Chosen Minerals</h2>
             <section>Chosen minerals stuffs go in here</section>
-            <button>BuTtOn</button>
+            <button>Purchase all minerals</button>
         </article>
 
         <article>
