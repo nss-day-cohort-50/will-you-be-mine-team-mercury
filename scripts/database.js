@@ -112,7 +112,19 @@ const database = {
             quantityAvailable: 3000
         }
     ],
-    resources : [],
+    resources : [
+        {id: 1, mineralId: 1, colonyId: 1, amount: 49},
+        {id: 2, mineralId: 3, colonyId: 1, amount: 7},
+        {id: 3, mineralId: 5, colonyId: 1, amount: 18},
+        {id: 4, mineralId: 3, colonyId: 2, amount: 99},
+        {id: 5, mineralId: 4, colonyId: 2, amount: 76},
+        {id: 6, mineralId: 2, colonyId: 3, amount: 43},
+        {id: 7, mineralId: 1, colonyId: 3, amount: 34},
+        {id: 8, mineralId: 5, colonyId: 3, amount: 56},
+        {id: 9, mineralId: 3, colonyId: 4, amount: 92},
+        {id: 10, mineralId: 2, colonyId: 4, amount: 5},
+        {id: 11, mineralId: 4, colonyId: 5, amount: 1}
+    ],
     chosenMinerals: {},
 }
 
@@ -121,10 +133,9 @@ export const getGovernors = () => { return database.governors.map(governor => ({
 export const getMinerals = () => { return database.minerals.map(mineral => ({...mineral}))}
 export const getMiningFacilities = () => { return database.miningFacilities.map(miningFacility => ({...miningFacility}))}
 export const getChosenMinerals = () =>{return database.chosenMinerals}
-// export const getOrders = () => { return database.orders.map(order => ({...order}))}
-// export const getOrderBuilder = () => { return database.orderBuilder}
+
+
 export const setChosenGovernorId = (id)=>{database.chosenMinerals.governorId = id}
 export const setSelectedFacility = (id)=>{database.chosenMinerals.facilityId = id}
 export const setChosenMaterials = (object) =>{database.chosenMinerals.selectedMinerals += object}
-//commented out last 2 getter functions, we need to re-write them to reflect accurate naming
 // Also need to add getter function for mineralsAvailableByFacilities
