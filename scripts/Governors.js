@@ -1,20 +1,24 @@
-import { getGovernors, setChosenGovernorId } from "./database.js";
+import { getGovernors, setChosenGovernorId, getChosenMinerals } from "./database.js";
 
 
 
 export const GovernorsSelection = () =>{
     const governors = getGovernors();
-    let htmlString = `<label for="governors">Governors</label>
-                        <select name="governors">
-                        <option value="" selected disabled hidden>Choose here</option>`;
+    let htmlString = `  <select name="governors">
+                        <option class="governor-option" value="" selected disabled hidden>Choose here</option>`;
     const governorsHTML = governors.map((gov) =>{
         if (gov.isActive){
-            return `
-                <option name="governors"  value="governors--${gov.id}">${gov.name}</option>
-            `
+                if(getChosenMinerals().governorId !== undefined && gov.id === getChosenMinerals().governorId){
+                    return `<option class="governor-option" name="governors"  value="governors--${gov.id}">${gov.name}</option>`
+                }else{
+                    return `
+                        <option class="governor-option" name="governors"  value="governors--${gov.id}">${gov.name}</option>
+                    `
+
+                }
         }else{
             return `
-                <option name="governors" disabled>${gov.name}</option>
+                <option class="governor-option" name="governors" disabled>${gov.name}</option>
             `
         }
     })
