@@ -136,6 +136,8 @@ export const getChosenMinerals = () =>{return database.chosenMinerals}
 export const getResources = () => {return database.resources.map(resource => ({...resource}))}
 
 
+export const getFacilitiesMinerals = ()=>{return database.mineralsAvailableByFacilities.map(mineral =>({...mineral}))}
+// export const getOrderBuilder = () => { return database.orderBuilder}
 export const setChosenGovernorId = (id)=>{database.chosenMinerals.governorId = id}
 export const setSelectedFacility = (id)=>{database.chosenMinerals.facilityId = id}
 export const setChosenMaterials = (object) =>{database.chosenMinerals.selectedMinerals += object}
