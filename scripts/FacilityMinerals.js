@@ -1,5 +1,41 @@
 import {getFacilitiesMinerals, getMiningFacilities, getMinerals} from "./database.js"
 
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "jupitersArmmineral") {
+            setSelectedFacility(parseInt(event.target.value))
+        }
+    }
+)
+
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "hermesArmPitmineral") {
+            setSelectedFacility(parseInt(event.target.value))
+        }
+    }
+)
+
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "hermesPalacemineral") {
+            setSelectedFacility(parseInt(event.target.value))
+        }
+    }
+)
+
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "lilTayTaysmineral") {
+            setSelectedFacility(parseInt(event.target.value))
+        }
+    }
+)
+
 
 const minerals = getMinerals();
 export const jupitersArmMinerals = () =>{
