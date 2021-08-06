@@ -8,14 +8,9 @@ export const GovernorsSelection = () =>{
                         <option class="governor-option" value="" selected disabled hidden>Choose here</option>`;
     const governorsHTML = governors.map((gov) =>{
         if (gov.isActive){
-                if(getChosenMinerals().governorId !== undefined && gov.id === getChosenMinerals().governorId){
-                    return `<option class="governor-option" name="governors"  value="governors--${gov.id}">${gov.name}</option>`
-                }else{
-                    return `
-                        <option class="governor-option" name="governors"  value="governors--${gov.id}">${gov.name}</option>
-                    `
-
-                }
+            return `
+                <option class="governor-option" name="governors"  value="governors--${gov.id}">${gov.name}</option>
+            `
         }else{
             return `
                 <option class="governor-option" name="governors" disabled>${gov.name}</option>

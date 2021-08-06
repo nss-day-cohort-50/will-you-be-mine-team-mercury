@@ -13,7 +13,7 @@ export const colonyMinerals = (colonyName) => {
     for (const mineral of minerals) {
         for (const colonyResource of colonyResources) {
             if (colonyResource.mineralId === mineral.id)
-        html +=`<li value="${colonyResource.id}">${mineral.name}  quantity ${colonyResource.amount}</li>`
+        html +=`<li value="${colonyResource.id}">${colonyResource.amount} tons of ${mineral.name} </li>`
         }
     }
 
