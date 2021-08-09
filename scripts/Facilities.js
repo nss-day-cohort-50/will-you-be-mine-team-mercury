@@ -51,6 +51,7 @@ const hideFacility = (id)=>{
     const facilityTwo = document.getElementById("facility2")
     const facilityThree = document.getElementById("facility3")
     const facilityFour = document.getElementById("facility4")
+    
     switch (id){
         case 1:
             facilityOne.classList.remove("hidden")

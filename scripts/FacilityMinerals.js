@@ -1,6 +1,6 @@
 import { foundFacilityMineral } from "./ChosenMinerals.js"
 import { getFacilitiesMinerals, getMiningFacilities, getMinerals, getChosenMinerals } from "./database.js"
-import { setJupitersArmId, setJupitersArmMineralId, setHermesArmpitId, setHermesArmpitMineralId, setHermesPalaceMineralId, setHermesPalaceId, setLilTayTaysId, setLilTayTaysMineralId } from "./database.js"
+import { setJupitersArmId, setJupitersArmMineralId, setHermesArmpitId, setHermesArmpitMineralId, setHermesPalaceMineralId, setHermesPalaceId, setLilTayTaysId, setLilTayTaysMineralId, setSelectedFacility } from "./database.js"
 
 document.addEventListener(
     "change",
@@ -10,6 +10,7 @@ document.addEventListener(
                     const [,targetId] = event.target.id.split("--")
                     setJupitersArmMineralId(parseInt(event.target.value))
                     setJupitersArmId(parseInt(targetId))
+                    setSelectedFacility(parseInt(targetId))
                     document.dispatchEvent(new CustomEvent ("stateChanged"))
                 }
         }
@@ -23,6 +24,7 @@ document.addEventListener(
                 const [,targetId] = event.target.id.split("--")
                 setLilTayTaysMineralId(parseInt(event.target.value))
                 setLilTayTaysId(parseInt(targetId))
+                setSelectedFacility(parseInt(targetId))
                 document.dispatchEvent(new CustomEvent ("stateChanged"))
                 }
         }
@@ -36,6 +38,7 @@ document.addEventListener(
                 const [,targetId] = event.target.id.split("--")
                 setHermesPalaceMineralId(parseInt(event.target.value))
                 setHermesPalaceId(parseInt(targetId))
+                setSelectedFacility(parseInt(targetId))
                 document.dispatchEvent(new CustomEvent ("stateChanged"))
             }
         }
@@ -49,6 +52,7 @@ document.addEventListener(
                 const [,targetId] = event.target.id.split("--")
                 setHermesArmpitMineralId(parseInt(event.target.value))
                 setHermesArmpitId(parseInt(targetId))
+                setSelectedFacility(parseInt(targetId))
                 document.dispatchEvent(new CustomEvent ("stateChanged"))
             }
         }
@@ -59,10 +63,16 @@ document.addEventListener(
 
 const minerals = getMinerals();
 export const jupitersArmMinerals = () =>{
-    let htmlString = `<ul class="hidden" id="facility1">`
+    let htmlString = ``
+    
     const allfacilityMinerals = getFacilitiesMinerals()
     const facility = getMiningFacilities().find((facility) => facility.name === "Jupiter's Arm")
     const facilityMinerals = allfacilityMinerals.filter((mineral) =>{return mineral.miningFacilityId === facility.id })
+    if (getChosenMinerals().facilityId === facility.id){
+        htmlString += `<ul class="" id="facility1">`
+    }else{
+        htmlString +=`<ul class="hidden" id="facility1">`
+    }
     for (const mineral of minerals){
         for (const facilityMineral of facilityMinerals){
             if (facilityMineral.mineralId === mineral.id){
@@ -78,9 +88,14 @@ export const jupitersArmMinerals = () =>{
     return htmlString
 }
 export const hermesArmpitMinerals = () =>{
-    let htmlString = `<ul class="hidden" id="facility2">`
+    let htmlString = ``
     const allfacilityMinerals = getFacilitiesMinerals()
     const facility = getMiningFacilities().find((facility) => facility.name === "Hermes' Armpit")
+    if (getChosenMinerals().facilityId === facility.id){
+        htmlString += `<ul class="" id="facility2">`
+    }else{
+        htmlString +=`<ul class="hidden" id="facility2">`
+    }
     const facilityMinerals = allfacilityMinerals.filter((mineral) =>{return mineral.miningFacilityId === facility.id })
     for (const mineral of minerals){
         for (const facilityMineral of facilityMinerals){
@@ -97,9 +112,14 @@ export const hermesArmpitMinerals = () =>{
     return htmlString
 }
 export const hermesPalaceMinerals = () =>{
-    let htmlString = `<ul class="hidden"id="facility3">`
+    let htmlString = ``
     const allfacilityMinerals = getFacilitiesMinerals()
     const facility = getMiningFacilities().find((facility) => facility.name === "Hermes' Palace")
+    if (getChosenMinerals().facilityId === facility.id){
+        htmlString += `<ul class="" id="facility3">`
+    }else{
+        htmlString +=`<ul class="hidden" id="facility3">`
+    }
     const facilityMinerals = allfacilityMinerals.filter((mineral) =>{return mineral.miningFacilityId === facility.id })
     for (const mineral of minerals){
         for (const facilityMineral of facilityMinerals){
@@ -116,9 +136,14 @@ export const hermesPalaceMinerals = () =>{
     return htmlString
 }
 export const lilTayTaysMinerals = () =>{
-    let htmlString = `<ul class="hidden"id="facility4">`
+    let htmlString = ``
     const allfacilityMinerals = getFacilitiesMinerals()
     const facility = getMiningFacilities().find((facility) => facility.name === "Lil' Tay-Tay's")
+    if (getChosenMinerals().facilityId === facility.id){
+        htmlString += `<ul class="" id="facility4">`
+    }else{
+        htmlString +=`<ul class="hidden" id="facility4">`
+    }
     const facilityMinerals = allfacilityMinerals.filter((mineral) =>{return mineral.miningFacilityId === facility.id })
     for (const mineral of minerals){
         for (const facilityMineral of facilityMinerals){
