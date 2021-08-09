@@ -1,6 +1,7 @@
 import { displayColonyAvailableResources } from "./Colonies.js"
 import { GovernorsSelection } from "./Governors.js"
 import { facilityList } from "./Facilities.js"
+import { foundFacilityMineral } from "./ChosenMinerals.js"
 
 
 export const beMineHTML = () => {
@@ -17,7 +18,11 @@ export const beMineHTML = () => {
 
         <article id="minerals">Chosen minerals and purchase button go in here
             <h2 class="mineral__title">Chosen Minerals</h2>
-            <section>Chosen minerals stuffs go in here</section>
+            <section>
+                <ul>
+                ${foundFacilityMineral()}
+                </ul>
+            </section>
             <button>Purchase all minerals</button>
         </article>
 
