@@ -178,3 +178,33 @@ export const addToExistingResource = () => {
         }
     }
 }
+
+export const subtractExistingFacilityResource = () => {
+    const resources = database.mineralsAvailableByFacilities
+    const facilityId = getChosenMinerals().facilityId
+    const jupiersMineral = getChosenMinerals().jupitersArmMineralId
+    const hermesArmPitMineral = getChosenMinerals().hermesArmpitMineralId
+    const hermesPalaceMineral = getChosenMinerals().hermesPalaceMineralId
+    const tayTaysMineral = getChosenMinerals().lilTayTaysMineralId
+    for (const resource of resources) {
+        if (resource.mineralId === jupiersMineral && resource.miningFacilityId === facilityId) {
+            resource.quantityAvailable -= 1
+        }
+        if (resource.mineralId === hermesArmPitMineral && resource.miningFacilityId === facilityId) {
+            resource.quantityAvailable -= 1
+        }
+        if (resource.mineralId === hermesPalaceMineral && resource.miningFacilityId === facilityId) {
+            resource.quantityAvailable -= 1
+        }
+        if (resource.mineralId === tayTaysMineral && resource.miningFacilityId === facilityId) {
+            resource.quantityAvailable -= 1
+        }
+    }
+}
+
+export const submitOrder = () => {
+    addToExistingResource()
+    subtractExistingFacilityResource()
+    database.chosenMinerals = {}
+    document.dispatchEvent(new CustomEvent("stateChanged"))  
+}

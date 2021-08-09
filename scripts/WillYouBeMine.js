@@ -2,11 +2,11 @@ import { displayColonyAvailableResources } from "./Colonies.js"
 import { GovernorsSelection } from "./Governors.js"
 import { facilityList } from "./Facilities.js"
 import { foundFacilityMineral } from "./ChosenMinerals.js"
-import { addToExistingResource } from "./database.js"
+import { submitOrder } from "./database.js"
 document.addEventListener("click",
     (event) => {
         if (event.target.id === "submitOrder") {
-            addToExistingResource()
+            submitOrder()
             document.dispatchEvent(new CustomEvent("stateChanged"))
         }
     })
