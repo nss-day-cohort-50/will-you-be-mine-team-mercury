@@ -2,7 +2,14 @@ import { displayColonyAvailableResources } from "./Colonies.js"
 import { GovernorsSelection } from "./Governors.js"
 import { facilityList } from "./Facilities.js"
 import { foundFacilityMineral } from "./ChosenMinerals.js"
-
+import { addToExistingResource } from "./database.js"
+document.addEventListener("click",
+    (event) => {
+        if (event.target.id === "submitOrder") {
+            addToExistingResource()
+            document.dispatchEvent(new CustomEvent("stateChanged"))
+        }
+    })
 
 export const beMineHTML = () => {
     return `
@@ -23,7 +30,7 @@ export const beMineHTML = () => {
                 ${foundFacilityMineral()}
                 </ul>
             </section>
-            <button>Purchase all minerals</button>
+            <button id="submitOrder">Purchase all minerals</button>
         </article>
 
         <article id="governors-and-colonies">

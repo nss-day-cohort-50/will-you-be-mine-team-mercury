@@ -153,3 +153,28 @@ export const setHermesArmpitMineralId = (id) =>{database.chosenMinerals.hermesAr
 export const setHermesPalaceMineralId = (id) =>{database.chosenMinerals.hermesPalaceMineralId = id}
 export const setLilTayTaysMineralId = (id) =>{database.chosenMinerals.lilTayTaysMineralId = id}
 //
+
+export const setColonyId = (id) => {database.chosenMinerals.colonyId = id}
+
+export const addToExistingResource = () => {
+    const resources = database.resources
+    const colonyId = getChosenMinerals().colonyId
+    const jupiersMineral = getChosenMinerals().jupitersArmMineralId
+    const hermesArmPitMineral = getChosenMinerals().hermesArmpitMineralId
+    const hermesPalaceMineral = getChosenMinerals().hermesPalaceMineralId
+    const tayTaysMineral = getChosenMinerals().lilTayTaysMineralId
+    for (const resource of resources) {
+        if (resource.mineralId === jupiersMineral && resource.colonyId === colonyId) {
+            resource.amount += 1
+        }
+        if (resource.mineralId === hermesArmPitMineral && resource.colonyId === colonyId) {
+            resource.amount += 1
+        }
+        if (resource.mineralId === hermesPalaceMineral && resource.colonyId === colonyId) {
+            resource.amount += 1
+        }
+        if (resource.mineralId === tayTaysMineral && resource.colonyId === colonyId) {
+            resource.amount += 1
+        }
+    }
+}
