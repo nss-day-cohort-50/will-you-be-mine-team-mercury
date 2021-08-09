@@ -1,5 +1,5 @@
 import { colonyMinerals } from "./ColonyMinerals.js";
-import { getGovernors, getColonies, getChosenMinerals} from "./database.js"
+import { getGovernors, getColonies, getChosenMinerals, setColonyId} from "./database.js"
 
 
  const findGovernor = (id) =>{
@@ -14,6 +14,7 @@ import { getGovernors, getColonies, getChosenMinerals} from "./database.js"
     const colonies = getColonies();
     if (governor !== undefined){
         const foundColony = colonies.find((colony) => colony.id === governor.colonyId)
+        setColonyId(foundColony.id) 
         return foundColony
 
     }

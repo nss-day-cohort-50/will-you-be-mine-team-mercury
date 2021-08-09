@@ -153,3 +153,69 @@ export const setHermesArmpitMineralId = (id) =>{database.chosenMinerals.hermesAr
 export const setHermesPalaceMineralId = (id) =>{database.chosenMinerals.hermesPalaceMineralId = id}
 export const setLilTayTaysMineralId = (id) =>{database.chosenMinerals.lilTayTaysMineralId = id}
 //
+
+export const setColonyId = (id) => {database.chosenMinerals.colonyId = id}
+
+export const addToExistingResource = () => {
+    const resources = database.resources
+    const colonyId = getChosenMinerals().colonyId
+    const jupiersMineral = getChosenMinerals().jupitersArmMineralId
+    const hermesArmPitMineral = getChosenMinerals().hermesArmpitMineralId
+    const hermesPalaceMineral = getChosenMinerals().hermesPalaceMineralId
+    const tayTaysMineral = getChosenMinerals().lilTayTaysMineralId
+    // const colonyResources = getResources().filter((resource) => {return resource.colonyId === colonyId})
+
+    // const foundColonyResource = colonyResources.find(colonyResource => {
+    //     if (colonyResource.mineralId === undefined) {
+    //         const newPurchase = {...database.chosenMinerals}
+    //         const lastIndex = database.resources.length - 1
+    //         newPurchase.id = database.resources[lastIndex].id + 1
+    //         database.resources.push(newPurchase)
+    //     }
+    // })
+
+    for (const resource of resources) {
+        if (resource.mineralId === jupiersMineral && resource.colonyId === colonyId) {
+            resource.amount += 1
+        }
+        if (resource.mineralId === hermesArmPitMineral && resource.colonyId === colonyId) {
+            resource.amount += 1
+        }
+        if (resource.mineralId === hermesPalaceMineral && resource.colonyId === colonyId) {
+            resource.amount += 1
+        }
+        if (resource.mineralId === tayTaysMineral && resource.colonyId === colonyId) {
+            resource.amount += 1
+        }
+    }
+}
+
+export const subtractExistingFacilityResource = () => {
+    const resources = database.mineralsAvailableByFacilities
+    const facilityId = getChosenMinerals().facilityId
+    const jupiersMineral = getChosenMinerals().jupitersArmMineralId
+    const hermesArmPitMineral = getChosenMinerals().hermesArmpitMineralId
+    const hermesPalaceMineral = getChosenMinerals().hermesPalaceMineralId
+    const tayTaysMineral = getChosenMinerals().lilTayTaysMineralId
+    for (const resource of resources) {
+        if (resource.mineralId === jupiersMineral && resource.miningFacilityId === facilityId) {
+            resource.quantityAvailable -= 1
+        }
+        if (resource.mineralId === hermesArmPitMineral && resource.miningFacilityId === facilityId) {
+            resource.quantityAvailable -= 1
+        }
+        if (resource.mineralId === hermesPalaceMineral && resource.miningFacilityId === facilityId) {
+            resource.quantityAvailable -= 1
+        }
+        if (resource.mineralId === tayTaysMineral && resource.miningFacilityId === facilityId) {
+            resource.quantityAvailable -= 1
+        }
+    }
+}
+
+export const submitOrder = () => {
+    addToExistingResource()
+    subtractExistingFacilityResource()
+    database.chosenMinerals = {}
+    document.dispatchEvent(new CustomEvent("stateChanged"))  
+}
