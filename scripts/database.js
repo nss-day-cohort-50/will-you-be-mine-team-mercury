@@ -163,6 +163,17 @@ export const addToExistingResource = () => {
     const hermesArmPitMineral = getChosenMinerals().hermesArmpitMineralId
     const hermesPalaceMineral = getChosenMinerals().hermesPalaceMineralId
     const tayTaysMineral = getChosenMinerals().lilTayTaysMineralId
+    // const colonyResources = getResources().filter((resource) => {return resource.colonyId === colonyId})
+
+    // const foundColonyResource = colonyResources.find(colonyResource => {
+    //     if (colonyResource.mineralId === undefined) {
+    //         const newPurchase = {...database.chosenMinerals}
+    //         const lastIndex = database.resources.length - 1
+    //         newPurchase.id = database.resources[lastIndex].id + 1
+    //         database.resources.push(newPurchase)
+    //     }
+    // })
+
     for (const resource of resources) {
         if (resource.mineralId === jupiersMineral && resource.colonyId === colonyId) {
             resource.amount += 1
