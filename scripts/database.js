@@ -125,7 +125,11 @@ const database = {
         {id: 10, mineralId: 2, colonyId: 4, amount: 5},
         {id: 11, mineralId: 4, colonyId: 5, amount: 1}
     ],
-    chosenMinerals: {},
+    chosenMinerals: {
+        governorId: 0,
+        facilityId: 0,
+        selectedMinerals: []
+    },
 }
 
 export const getColonies = () => { return database.colonies.map(colony => ({...colony}))}
@@ -141,17 +145,18 @@ export const getFacilitiesMinerals = ()=>{return database.mineralsAvailableByFac
 export const setChosenGovernorId = (id)=>{database.chosenMinerals.governorId = id}
 export const setSelectedFacility = (id)=>{database.chosenMinerals.facilityId = id}
 export const setChosenMaterials = (object) =>{database.chosenMinerals.selectedMinerals += object}
+
 // Also need to add getter function for mineralsAvailableByFacilities
 
-export const setJupitersArmId = (id) =>{database.chosenMinerals.jupitersArmId = id}
-export const setHermesArmpitId = (id) =>{database.chosenMinerals.hermesArmpitId = id}
-export const setHermesPalaceId = (id) =>{database.chosenMinerals.hermesPalaceId = id}
-export const setLilTayTaysId = (id) =>{database.chosenMinerals.lilTayTaysId = id}
+// export const setJupitersArmId = (id) =>{database.chosenMinerals.jupitersArmId = id}
+// export const setHermesArmpitId = (id) =>{database.chosenMinerals.hermesArmpitId = id}
+// export const setHermesPalaceId = (id) =>{database.chosenMinerals.hermesPalaceId = id}
+// export const setLilTayTaysId = (id) =>{database.chosenMinerals.lilTayTaysId = id}
 
-export const setJupitersArmMineralId = (id) =>{database.chosenMinerals.jupitersArmMineralId = id}
-export const setHermesArmpitMineralId = (id) =>{database.chosenMinerals.hermesArmpitMineralId = id}
-export const setHermesPalaceMineralId = (id) =>{database.chosenMinerals.hermesPalaceMineralId = id}
-export const setLilTayTaysMineralId = (id) =>{database.chosenMinerals.lilTayTaysMineralId = id}
+// export const setJupitersArmMineralId = (id) =>{database.chosenMinerals.jupitersArmMineralId = id}
+// export const setHermesArmpitMineralId = (id) =>{database.chosenMinerals.hermesArmpitMineralId = id}
+// export const setHermesPalaceMineralId = (id) =>{database.chosenMinerals.hermesPalaceMineralId = id}
+// export const setLilTayTaysMineralId = (id) =>{database.chosenMinerals.lilTayTaysMineralId = id}
 //
 
 export const setColonyId = (id) => {database.chosenMinerals.colonyId = id}

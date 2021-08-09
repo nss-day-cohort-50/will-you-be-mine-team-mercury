@@ -1,6 +1,6 @@
 import { foundFacilityMineral } from "./ChosenMinerals.js"
 import { getFacilitiesMinerals, getMiningFacilities, getMinerals, getChosenMinerals } from "./database.js"
-import { setJupitersArmId, setJupitersArmMineralId, setHermesArmpitId, setHermesArmpitMineralId, setHermesPalaceMineralId, setHermesPalaceId, setLilTayTaysId, setLilTayTaysMineralId, setSelectedFacility } from "./database.js"
+import { setChosenMaterials, setSelectedFacility } from "./database.js"
 
 document.addEventListener(
     "change",
@@ -8,9 +8,8 @@ document.addEventListener(
         if (event.target.name === "jupitersArmMineral") {
                 if (event.target.id.startsWith("facility")) {
                     const [,targetId] = event.target.id.split("--")
-                    setJupitersArmMineralId(parseInt(event.target.value))
-                    setJupitersArmId(parseInt(targetId))
-                    setSelectedFacility(parseInt(targetId))
+                    const chosenMat = {mineralId:parseInt(event.target.value)}
+                    setChosenMaterials(chosenMat)
                     document.dispatchEvent(new CustomEvent ("stateChanged"))
                 }
         }
@@ -22,9 +21,8 @@ document.addEventListener(
         if (event.target.name === "lilTayTaysMineral") {
             if (event.target.id.startsWith("facility")) {
                 const [,targetId] = event.target.id.split("--")
-                setLilTayTaysMineralId(parseInt(event.target.value))
-                setLilTayTaysId(parseInt(targetId))
-                setSelectedFacility(parseInt(targetId))
+                const chosenMat = {mineralId:parseInt(event.target.value)}
+                    setChosenMaterials(chosenMat)
                 document.dispatchEvent(new CustomEvent ("stateChanged"))
                 }
         }
@@ -36,9 +34,8 @@ document.addEventListener(
         if (event.target.name === "hermesPalaceMineral") {
             if (event.target.id.startsWith("facility")) {
                 const [,targetId] = event.target.id.split("--")
-                setHermesPalaceMineralId(parseInt(event.target.value))
-                setHermesPalaceId(parseInt(targetId))
-                setSelectedFacility(parseInt(targetId))
+                const chosenMat = {mineralId:parseInt(event.target.value)}
+                    setChosenMaterials(chosenMat)
                 document.dispatchEvent(new CustomEvent ("stateChanged"))
             }
         }
@@ -50,9 +47,8 @@ document.addEventListener(
         if (event.target.name === "hermesArmPitMineral") {
             if (event.target.id.startsWith("facility")) {
                 const [,targetId] = event.target.id.split("--")
-                setHermesArmpitMineralId(parseInt(event.target.value))
-                setHermesArmpitId(parseInt(targetId))
-                setSelectedFacility(parseInt(targetId))
+                const chosenMat = {mineralId:parseInt(event.target.value)}
+                    setChosenMaterials(chosenMat)
                 document.dispatchEvent(new CustomEvent ("stateChanged"))
             }
         }

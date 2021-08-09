@@ -1,4 +1,4 @@
-import { getChosenMinerals, getMiningFacilities } from "./database.js";
+import { getChosenMinerals, getMiningFacilities, setSelectedFacility } from "./database.js";
 import {jupitersArmMinerals, hermesArmpitMinerals, hermesPalaceMinerals, lilTayTaysMinerals} from "./FacilityMinerals.js"
 export const facilityList = () => {
 
@@ -42,6 +42,7 @@ export const facilityList = () => {
 document.addEventListener("click",
     (event) =>{
         if (event.target.id === "facilityButton"){
+            setSelectedFacility(parseInt(event.target.value))
             hideFacility(parseInt(event.target.value))
         }
 })
@@ -51,7 +52,7 @@ const hideFacility = (id)=>{
     const facilityTwo = document.getElementById("facility2")
     const facilityThree = document.getElementById("facility3")
     const facilityFour = document.getElementById("facility4")
-    
+     
     switch (id){
         case 1:
             facilityOne.classList.remove("hidden")
