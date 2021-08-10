@@ -11,6 +11,7 @@
 body {
     font-family: 'Inconsolata', monospace;
     color: white;
+    font-size: 25px;
 }
 video {
     object-fit: cover;
@@ -19,7 +20,7 @@ video {
     position: fixed;
     top: 0;
     left: 0;
-  }
+  } 
 .viewport-header {
     position: relative;
     height: 100vh;
@@ -29,19 +30,18 @@ video {
     align-content: space-around;
     flex-direction: column;
     height: 30vh;
+    padding: 3rem;
+    margin: auto;
 }
 
 #facilityList {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    ;
-
+    justify-content: space-around;
     align-content: space-around;
 }
 #facilityList article{
-    
-    flex-basis: 25%
+    flex: 1 1 25%;
 }
 #minerals{
     display: flex;

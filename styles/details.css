@@ -6,6 +6,7 @@
     font-weight: bold;
     color: white;
     background-color: rgb(3, 3, 45);
+    align-items: center;
 
 }
 .facility__title {
@@ -27,6 +28,10 @@ h1 {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
 }
+h2 {
+    font-size: 2rem;
+}
+
 #chooseGov {
     padding-left: 2rem;
 }
@@ -61,4 +66,14 @@ ul {
     align-self: center;
     padding: 1px;
     background-color: rgb(27, 183, 131);
+}
+
+.box-styling{
+    height: 30px;
+    border: 1px solid #999;
+    font-size: 20px;
+    color: #1C87C9;
+    background-color: #eee;
+    border-radius: 5px;
+    box-shadow: 4px 4px #ccc;
 }
