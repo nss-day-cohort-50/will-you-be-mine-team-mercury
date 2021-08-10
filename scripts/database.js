@@ -125,7 +125,11 @@ const database = {
         {id: 10, mineralId: 2, colonyId: 4, amount: 5},
         {id: 11, mineralId: 4, colonyId: 5, amount: 1}
     ],
-    chosenMinerals: {},
+    chosenMinerals: {
+        governorId: 0,
+        facilityId: 0,
+        selectedMinerals: []
+    },
 }
 
 export const getColonies = () => { return database.colonies.map(colony => ({...colony}))}
@@ -137,21 +141,14 @@ export const getResources = () => {return database.resources.map(resource => ({.
 
 
 export const getFacilitiesMinerals = ()=>{return database.mineralsAvailableByFacilities.map(mineral =>({...mineral}))}
-// export const getOrderBuilder = () => { return database.orderBuilder}
 export const setChosenGovernorId = (id)=>{database.chosenMinerals.governorId = id}
 export const setSelectedFacility = (id)=>{database.chosenMinerals.facilityId = id}
-export const setChosenMaterials = (object) =>{database.chosenMinerals.selectedMinerals += object}
+export const setChosenMaterials = (object, num) => {database.chosenMinerals.selectedMinerals.splice(num,1,object)}
+     
+
 // Also need to add getter function for mineralsAvailableByFacilities
 
-export const setJupitersArmId = (id) =>{database.chosenMinerals.jupitersArmId = id}
-export const setHermesArmpitId = (id) =>{database.chosenMinerals.hermesArmpitId = id}
-export const setHermesPalaceId = (id) =>{database.chosenMinerals.hermesPalaceId = id}
-export const setLilTayTaysId = (id) =>{database.chosenMinerals.lilTayTaysId = id}
 
-export const setJupitersArmMineralId = (id) =>{database.chosenMinerals.jupitersArmMineralId = id}
-export const setHermesArmpitMineralId = (id) =>{database.chosenMinerals.hermesArmpitMineralId = id}
-export const setHermesPalaceMineralId = (id) =>{database.chosenMinerals.hermesPalaceMineralId = id}
-export const setLilTayTaysMineralId = (id) =>{database.chosenMinerals.lilTayTaysMineralId = id}
 //
 
 export const setColonyId = (id) => {database.chosenMinerals.colonyId = id}
@@ -163,16 +160,7 @@ export const addToExistingResource = () => {
     const hermesArmPitMineral = getChosenMinerals().hermesArmpitMineralId
     const hermesPalaceMineral = getChosenMinerals().hermesPalaceMineralId
     const tayTaysMineral = getChosenMinerals().lilTayTaysMineralId
-    // const colonyResources = getResources().filter((resource) => {return resource.colonyId === colonyId})
-
-    // const foundColonyResource = colonyResources.find(colonyResource => {
-    //     if (colonyResource.mineralId === undefined) {
-    //         const newPurchase = {...database.chosenMinerals}
-    //         const lastIndex = database.resources.length - 1
-    //         newPurchase.id = database.resources[lastIndex].id + 1
-    //         database.resources.push(newPurchase)
-    //     }
-    // })
+   
 
     for (const resource of resources) {
         if (resource.mineralId === jupiersMineral && resource.colonyId === colonyId) {

@@ -1,30 +1,16 @@
-import { getChosenMinerals, getMiningFacilities } from "./database.js";
-import {jupitersArmMinerals, hermesArmpitMinerals, hermesPalaceMinerals, lilTayTaysMinerals} from "./FacilityMinerals.js"
+import { getChosenMinerals, getMiningFacilities, setSelectedFacility } from "./database.js";
+import {facilityMineralsList} from "./FacilityMinerals.js"
 export const facilityList = () => {
 
     let htmlString = ""
     const miningFacility = getMiningFacilities()
     const governor = getChosenMinerals().governorId
     const miningFacilityHTML = miningFacility.map((facility) => {
-        if (facility.isActive && governor !== undefined) {
-            let facilityMinerals
-            switch (facility.name){
-                case "Jupiter's Arm":
-                    facilityMinerals = jupitersArmMinerals();
-                    break;
-                case "Hermes' Armpit":
-                    facilityMinerals = hermesArmpitMinerals();
-                    break;
-                case "Hermes' Palace":
-                    facilityMinerals = hermesPalaceMinerals();
-                    break;
-                case "Lil' Tay-Tay's":
-                    facilityMinerals = lilTayTaysMinerals();
-                    break;
-                }
+        if (facility.isActive && governor !== 0) {
+            
                 return `<article>
                 <button type="button" id="facilityButton"value=${facility.id}>${facility.name}</button>
-                ${facilityMinerals}
+                ${facilityMineralsList(facility)}
             </article>`
 
         } else  {
@@ -42,6 +28,7 @@ export const facilityList = () => {
 document.addEventListener("click",
     (event) =>{
         if (event.target.id === "facilityButton"){
+            setSelectedFacility(parseInt(event.target.value))
             hideFacility(parseInt(event.target.value))
         }
 })
@@ -51,7 +38,7 @@ const hideFacility = (id)=>{
     const facilityTwo = document.getElementById("facility2")
     const facilityThree = document.getElementById("facility3")
     const facilityFour = document.getElementById("facility4")
-    
+     
     switch (id){
         case 1:
             facilityOne.classList.remove("hidden")

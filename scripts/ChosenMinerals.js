@@ -18,37 +18,10 @@ return facilityTest
 }
 
 export const foundFacilityMineral = () => {
-
-    const jupitersArmId = getChosenMinerals().jupitersArmId
-    const jupitersArmMineral = getChosenMinerals().jupitersArmMineralId
-    const hermesArmpitId = getChosenMinerals().hermesArmpitId
-    const hermesArmpitMineral = getChosenMinerals().hermesArmpitMineralId
-    const hermesPalaceId = getChosenMinerals().hermesPalaceId
-    const hermesPalaceMineral = getChosenMinerals().hermesPalaceMineralId
-    const lilTayTaysId = getChosenMinerals().lilTayTaysId
-    const lilTayTaysMineral = getChosenMinerals().lilTayTaysMineralId
-
-    let html = ""
-
-    if (getChosenMinerals().jupitersArmId !== undefined){
-        const foundSelectedMineral = foundMineral(jupitersArmMineral)
-        const foundSelectedFacility = foundFacility(jupitersArmId)
-        html += `<li>1 ton of ${foundSelectedMineral.name} from ${foundSelectedFacility.name}</li>`
-    }
-    if (getChosenMinerals().hermesArmpitId !== undefined){
-        const foundSelectedMineral = foundMineral(hermesArmpitMineral)
-        const foundSelectedFacility = foundFacility(hermesArmpitId)
-        html += `<li>1 ton of ${foundSelectedMineral.name} from ${foundSelectedFacility.name}</li>`
-    }
-    if (getChosenMinerals().hermesPalaceId !== undefined){
-        const foundSelectedMineral = foundMineral(hermesPalaceMineral)
-        const foundSelectedFacility = foundFacility(hermesPalaceId)
-        html += `<li>1 ton of ${foundSelectedMineral.name} from ${foundSelectedFacility.name}</li>`
-    }
-    if (getChosenMinerals().lilTayTaysId !== undefined){
-        const foundSelectedMineral = foundMineral(lilTayTaysMineral)
-        const foundSelectedFacility = foundFacility(lilTayTaysId)
-        html += `<li>1 ton of ${foundSelectedMineral.name} from ${foundSelectedFacility.name}</li>`
-    }
+    const chosenMinerals = getChosenMinerals().selectedMinerals
+    let html = "<ul>"
+    const mappedMinerals = chosenMinerals.map((mineral)=> `<li>1 Ton of ${foundMineral(mineral.mineralId).name} from ${foundFacility(mineral.facilityId).name}</li>`)
+    html += mappedMinerals.join("")
+    html += "<ul>"
     return html
 }
