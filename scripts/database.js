@@ -154,56 +154,48 @@ export const setChosenMaterials = (object, num) => {database.chosenMinerals.sele
 export const setColonyId = (id) => {database.chosenMinerals.colonyId = id}
 
 export const addToExistingResource = () => {
-    const resources = database.resources
-    const colonyId = getChosenMinerals().colonyId
-    const jupiersMineral = getChosenMinerals().jupitersArmMineralId
-    const hermesArmPitMineral = getChosenMinerals().hermesArmpitMineralId
-    const hermesPalaceMineral = getChosenMinerals().hermesPalaceMineralId
-    const tayTaysMineral = getChosenMinerals().lilTayTaysMineralId
-   
-
-    for (const resource of resources) {
-        if (resource.mineralId === jupiersMineral && resource.colonyId === colonyId) {
-            resource.amount += 1
+    const colonyId = database.chosenMinerals.colonyId
+    const selectedMinerals = database.chosenMinerals.selectedMinerals
+    const colonyMinerals = database.resources.filter((resource)=>{return colonyId === resource.colonyId})
+    
+    for (const selectedMineral of selectedMinerals) {
+            const foundColonyMineral = colonyMinerals.find((mineral)=>{return selectedMineral.mineralId === mineral.mineralId})
+            if (foundColonyMineral){
+                foundColonyMineral.amount +=1
+            }else{
+                const newPurchase = selectedMineral
+                const lastIndex = database.resources.length - 1;
+                newPurchase.id = database.resources[lastIndex].id + 1
+                newPurchase.colonyId = colonyId
+                newPurchase.amount = 1
+                delete newPurchase.facilityId
+                database.resources.push(newPurchase)
+                //console.log(database.resources)
+            }
         }
-        if (resource.mineralId === hermesArmPitMineral && resource.colonyId === colonyId) {
-            resource.amount += 1
-        }
-        if (resource.mineralId === hermesPalaceMineral && resource.colonyId === colonyId) {
-            resource.amount += 1
-        }
-        if (resource.mineralId === tayTaysMineral && resource.colonyId === colonyId) {
-            resource.amount += 1
-        }
-    }
+    
 }
 
 export const subtractExistingFacilityResource = () => {
-    const resources = database.mineralsAvailableByFacilities
-    const facilityId = getChosenMinerals().facilityId
-    const jupiersMineral = getChosenMinerals().jupitersArmMineralId
-    const hermesArmPitMineral = getChosenMinerals().hermesArmpitMineralId
-    const hermesPalaceMineral = getChosenMinerals().hermesPalaceMineralId
-    const tayTaysMineral = getChosenMinerals().lilTayTaysMineralId
-    for (const resource of resources) {
-        if (resource.mineralId === jupiersMineral && resource.miningFacilityId === facilityId) {
-            resource.quantityAvailable -= 1
+    const facilityId = database.chosenMinerals.facilityId
+    const selectedMinerals = database.chosenMinerals.selectedMinerals
+    for (const selectedMineral of selectedMinerals ){
+        const facilityMinerals = database.mineralsAvailableByFacilities.find((resource)=>{
+            return selectedMineral.mineralId === resource.mineralId && selectedMineral.facilityId === resource.miningFacilityId})
+        if (facilityMinerals !== undefined){
+            facilityMinerals.quantityAvailable -= 1
+
         }
-        if (resource.mineralId === hermesArmPitMineral && resource.miningFacilityId === facilityId) {
-            resource.quantityAvailable -= 1
-        }
-        if (resource.mineralId === hermesPalaceMineral && resource.miningFacilityId === facilityId) {
-            resource.quantityAvailable -= 1
-        }
-        if (resource.mineralId === tayTaysMineral && resource.miningFacilityId === facilityId) {
-            resource.quantityAvailable -= 1
-        }
+
     }
 }
 
 export const submitOrder = () => {
     addToExistingResource()
     subtractExistingFacilityResource()
-    database.chosenMinerals = {}
-    document.dispatchEvent(new CustomEvent("stateChanged"))  
+    database.governorId = 0
+    database.facilityId = 0
+    database.chosenMinerals.selectedMinerals = []
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+    console.log(database.resources)  
 }

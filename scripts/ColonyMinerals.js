@@ -2,9 +2,9 @@ import { getColonies, getMinerals, getResources } from "./database.js";
 
 
 
-const minerals = getMinerals();
 
 export const colonyMinerals = (colonyName) => {
+    const minerals = getMinerals();
     let html = "<ul>"
 
     const colony = getColonies().find((colony) => colony.name === colonyName)
