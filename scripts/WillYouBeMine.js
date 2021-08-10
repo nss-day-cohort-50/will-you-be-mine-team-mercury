@@ -23,7 +23,7 @@ export const beMineHTML = () => {
 
         </article>
 
-        <article id="minerals">Chosen minerals and purchase button go in here
+        <article id="minerals">
             <h2 class="mineral__title">Chosen Minerals</h2>
             <section>
                 <ul>
@@ -35,7 +35,7 @@ export const beMineHTML = () => {
 
         <article id="governors-and-colonies">
             <section>
-            <p>Choose your governor</p>
+            <p id="chooseGov">Choose your governor</p>
             </section>
             <section class="governor-selector">${GovernorsSelection()}</section>
             </section>

@@ -1,3 +1,13 @@
+#facilityButton{
+    width: 12rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(3, 3, 45);
+
+}
 .facility__title {
     text-align: center;
 }
@@ -17,7 +27,9 @@ h1 {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
 }
-
+#chooseGov {
+    padding-left: 2rem;
+}
 .governor-selector {
     flex: 0 1 auto;
     font-family: 'Inconsolata', monospace;
@@ -41,4 +53,12 @@ h1 {
 
 ul {
     list-style-type: none;
+}
+#submitOrder{
+    width: 20rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    align-self: center;
+    padding: 1px;
+    background-color: rgb(27, 183, 131);
 }
