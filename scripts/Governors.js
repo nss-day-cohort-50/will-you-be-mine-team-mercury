@@ -4,7 +4,7 @@ import { getGovernors, setChosenGovernorId, getChosenMinerals } from "./database
 
 export const GovernorsSelection = () =>{
     const governors = getGovernors();
-    let htmlString = `  <select name="governors">
+    let htmlString = `  <select name="governors" class="box-styling">
                         <option class="governor-option" value=""  selected disabled hidden>Choose here</option>`;
     const governorsHTML = governors.map((gov) =>{
         if (gov.isActive){
