@@ -14,7 +14,7 @@ body {
 
 #facilities {
     display: flex;
-    align-content: space-between;
+    align-content: space-around;
     flex-direction: column;
     height: 50vh;
 }
@@ -23,12 +23,13 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
+    ;
 
     align-content: space-around;
 }
 #facilityList article{
     border: aquamarine 1px solid;
+    flex-basis: 25%
 }
 
 .hidden {

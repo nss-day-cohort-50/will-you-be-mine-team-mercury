@@ -1,7 +1,9 @@
 .facility__title {
     text-align: center;
 }
-
+#facilityList article ul {
+    padding: 1px;
+}
 .mineral__title {
     text-align: center;
 }
